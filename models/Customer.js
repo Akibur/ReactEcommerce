@@ -22,14 +22,16 @@ const CustomerSchema = new Schema({
   },
   avatar: {
     type: String,
-    required: true,
   },
   date: {
     type: Date,
     default: Date.now,
   },
   address: {
-    type: String,
+    street: String,
+    zip: String,
+    city: String,
+    country: String,
   },
 });
 
