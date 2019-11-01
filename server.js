@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const passport = require('passport');
 
 const customers = require('./routes/api/customers');
 const admins = require('./routes/api/admins');
@@ -9,6 +10,12 @@ const products = require('./routes/api/products');
 const app = express();
 
 // Middleware
+
+//Passport Middleware
+
+app.use(passport.initialize());
+//passport config
+require('./config/passport')(passport);
 
 // Boody parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
