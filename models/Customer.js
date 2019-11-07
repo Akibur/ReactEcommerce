@@ -33,6 +33,15 @@ const CustomerSchema = new Schema({
     city: String,
     country: String,
   },
+  handle: {
+    type: String,
+    required: true,
+    max: 40,
+  },
+  orders: {
+    type: [Schema.Types.ObjectId],
+    ref: 'orders',
+  },
 });
 
 module.exports = Customer = mongoose.model(
