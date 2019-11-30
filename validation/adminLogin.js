@@ -1,7 +1,7 @@
 const validator = require('validator');
 const isEmpty = require('./isEmpty.js');
 
-module.exports = function validateCustomerLogin(data) {
+module.exports = function validateAdminLogin(data) {
   const errors = {};
 
   // Making sure the data is string when empty

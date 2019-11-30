@@ -28,6 +28,11 @@ const AdminSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  handle: {
+    type: String,
+    required: true,
+    max: 40,
+  },
 });
 
 module.exports = Admin = mongoose.model('admins', AdminSchema);

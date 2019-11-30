@@ -28,7 +28,7 @@ router.get('/test', (req, res) =>
 router.post('/register', (req, res) => {
   const { errors, isValid } = validateCustomerRegisterInput(req.body);
 
-  //Validate
+  // Validate
   if (!isValid) {
     return res.status(400).json(errors);
   }
@@ -71,7 +71,7 @@ router.post('/register', (req, res) => {
 // @access Public
 router.post('/login', (req, res) => {
   const { errors, isValid } = validateCustomerLoginInput(req.body);
-  //Validate
+  // Validate
   if (!isValid) {
     return res.status(400).json(errors);
   }
@@ -79,18 +79,18 @@ router.post('/login', (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
 
-  //Find customer by email
+  // Find customer by email
   Customer.findOne({ email: email }).then(customer => {
-    //Check for customer
+    // Check for customer
     if (!customer) {
       errors.email = 'Customer not found';
       return res.status(404).json(errors);
     }
 
-    //Check Password
+    // Check Password
     bcrypt.compare(password, customer.password).then(isMatch => {
       if (isMatch) {
-        //Customer Matched. Create JWT payload
+        // Customer Matched. Create JWT payload
         const payload = {
           id: customer.id,
           name: customer.name,
